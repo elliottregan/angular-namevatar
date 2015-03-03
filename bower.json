@@ -4,7 +4,7 @@
   "authors": [
     "Elliott Regan"
   ],
-  "description": "An AngularJS directive to programically generate unique backgrounds based on a string.",
+  "description": "An AngularJS directive to programmatically generate unique backgrounds based on a string.",
   "main": "build/angular-namevatar.js",
   "author": "Elliott Regan",
   "license": "ISC",
