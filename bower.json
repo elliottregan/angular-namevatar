@@ -1,0 +1,15 @@
+{
+  "name": "angular-namevatar",
+  "version": "0.1.0",
+  "authors": [
+    "Elliott Regan"
+  ],
+  "description": "An AngularJS directive to programically generate unique backgrounds based on a string.",
+  "main": "build/angular-namevatar.js",
+  "author": "Elliott Regan",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.0"
+  }
+}
