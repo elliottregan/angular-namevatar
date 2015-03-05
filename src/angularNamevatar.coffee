@@ -1,9 +1,11 @@
+m = angular.module("angular-namevatar", [])
+
 angular.module("angular-namevatar").directive "namevatar", ->
   restrict: "AC"
   link: (scope, element, attrs) ->
-    scope.$watch attrs.randomBackground, (value) ->
+    scope.$watch attrs.namevatar, (value) ->
       hashString = (stringToHash) ->
-        
+
         # Ensure the string is long enough
         i = 0
         while stringToHash.length < 6
@@ -24,19 +26,19 @@ angular.module("angular-namevatar").directive "namevatar", ->
           i++
         hash
       ColorLuminance = (hex, sat_override, val_override) ->
-        
+
         # validate hex string
         hex = String(hex).replace(/[^0-9a-f]/g, "")
-        
+
         # if none of the characters can be used, we has the original string to get all numbers.
-        hex = "" + Math.abs(hashString(attrs.randomBackground).toString())  if hex.length is 0
-        
+        hex = "" + Math.abs(hashString(attrs.namevatar).toString())  if hex.length is 0
+
         # Ensure the string is long enough
         i = 0
         while hex.length < 6
-          hex = hex.add(hex.charAt(0))
+          hex = hex.concat(hex.charAt(0))
           i++
-        
+
         # convert to HSL
         r = parseInt(hex.substring(0, 2), 16) / 255
         g = parseInt(hex.substring(2, 4), 16) / 255
@@ -67,10 +69,10 @@ angular.module("angular-namevatar").directive "namevatar", ->
         sat = sat_override  if typeof sat_override is "number"
         val = val_override  if typeof val_override is "number"
         "hsla(" + hue + "," + sat * 100 + "%," + val * 100 + "%,1)"
-      color1 = ColorLuminance(attrs.randomBackground, 0.4, 0.70)
-      color2 = ColorLuminance(attrs.randomBackground, 0.4, 0.60)
+      color1 = ColorLuminance(attrs.namevatar, 0.4, 0.70)
+      color2 = ColorLuminance(attrs.namevatar, 0.4, 0.60)
       element.css "background-color", color1
-      switch Math.abs(hashString(attrs.randomBackground)).toString()[0]
+      switch Math.abs(hashString(attrs.namevatar)).toString()[0]
         when "0" # vertical lines
           element.css "background-image", "linear-gradient(to right," + color1 + " 50%," + color2 + " 50%," + color2 + " 100%)"
           element.css "background-size", ".5rem .5rem"

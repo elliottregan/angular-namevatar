@@ -3,6 +3,10 @@
 An AngularJS directive to programmatically generate unique backgrounds based on a string.
 
 
+## Demo
+
+http://jsbin.com/baqizobufi/1/
+
 ## Usage
 
 Just include the directive in your app:
@@ -23,4 +27,3 @@ Every time a value is used, the same color and pattern will be generated.
 ## How it works:
 
 The directive will add a style attribute to the element with programmatically generated `background-image` pattern and `background-color` as a fallback. There is a set of possible background patterns created with CSS, and the color and accent color are selected randomly from a palette of objectively pleasing pastels.
-
